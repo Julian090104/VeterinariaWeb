@@ -82,12 +82,12 @@ namespace Veterinaria.App.Consola
         private static void EditarDuenor(){
             var dueno = new Dueno{
                 Id = 1,
-                Nombre = "Rafael Morales",
-                Telefono = "3103216156",
-                Edad = 42,
+                Nombre = "Blanca Aurora Castano",
+                Telefono = "3127445495",
+                Edad = 51,
                 Direccion = "Calle 17 #23-20",
-                Correo = "casanare@gmail.com",
-                Contrasena = "LaM1sm4",
+                Correo = "blancaauroracastanororzco@gmail.com",
+                Contrasena = "B7Ae18923",
             }; 
             repoDueno.EditarDueno(dueno);
         }
@@ -163,7 +163,7 @@ namespace Veterinaria.App.Consola
 
         private static void AgregarHistoriaClinica(){
             var historiaclinica = new HistoriaClinica{
-                ContenidoHistoriaClinica = "bla bla bla bla bla bla bla bla bla bla bla bla",
+                ContenidoHistoriaClinica = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse velit sem, cursus nec consectetur a, placerat ut lectus. Nulla facilisis est et ligula posuere porttitor.",
                 FechaHistoriaClinica = new DateTime(2021, 02, 02),
                 IdAnimal = 1,
                 IdDiagnostico = 1
