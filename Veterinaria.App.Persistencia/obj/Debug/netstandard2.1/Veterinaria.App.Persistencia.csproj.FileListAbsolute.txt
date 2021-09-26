@@ -1,0 +1,11 @@
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.csprojAssemblyReference.cache
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.AssemblyInfoInputs.cache
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.AssemblyInfo.cs
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\bin\Debug\netstandard2.1\Veterinaria.App.Persistencia.deps.json
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\bin\Debug\netstandard2.1\Veterinaria.App.Persistencia.dll
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\bin\Debug\netstandard2.1\Veterinaria.App.Persistencia.pdb
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.dll
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.pdb
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.csproj.CopyComplete
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.dll
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Persistencia\obj\Debug\netstandard2.1\Veterinaria.App.Persistencia.pdb
