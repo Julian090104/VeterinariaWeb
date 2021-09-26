@@ -11,9 +11,27 @@ namespace Veterinaria.App.Consola
         private static IRepositorioAnimal repoAnimal = new RepositorioAnimal(new Persistencia.AppContext());
         private static IRepositorioDiagnostico repoDiagnostico = new RepositorioDiagnostico(new Persistencia.AppContext());
         private static IRepositorioVacuna repoVacuna = new RepositorioVacuna(new Persistencia.AppContext());
+        private static IRepositorioPlanVacunacion repoPlanVacunacion = new RepositorioPlanVacunacion(new Persistencia.AppContext());
+        private static IRepositorioHistoriaClinica repoHistoriaClinica = new RepositorioHistoriaClinica(new Persistencia.AppContext());
+        private static IRepositorioAdministrador repoAdministrador = new RepositorioAdministrador(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {  
+            //AgregarPlanVacunacion();
+            //BuscarPlanVacunacion(1);
+            //EditarPlanVacunacion();
+            //EliminarPlanVacunacion(2);
+
+            //AgregarHistoriaClinica();
+            //BuscarHistoriaClinica(1);
+            //EditarHistoriaClinica();
+            //EliminarHistoriaClinica(2);
+
+            //AgregarAdministrador();
+            //BuscarAdministrador(1);
+            //EditarAdministrador();
+            //EliminarAdministrador(1);
+           
             //AgregarVacuna();
             //BuscarVacuna(1);
             //EditarVacuna();
@@ -34,6 +52,98 @@ namespace Veterinaria.App.Consola
             //EditarVeterinario();
             //BuscarVeterinario(1);
             //Console.WriteLine("Hello World!");
+        }
+
+        private static void AgregarPlanVacunacion(){
+            var planvacunacion = new PlanVacunacion{
+                Nombre = "Brigada 2021 papiloma",
+                Descripcion = "Jornada de vacunación masiva del papiloma humano"
+            };
+            repoPlanVacunacion.AgregarPlanVacunacion(planvacunacion);
+        }
+
+        private static void BuscarPlanVacunacion(int idPlanVacunacion){
+            var planvacunacion = repoPlanVacunacion.ObtenerPlanVacunacion(idPlanVacunacion);
+            Console.WriteLine("el nombre del plan de vacunación es: " + planvacunacion.Nombre);
+        }
+
+        private static void EditarPlanVacunacion(){
+            var planvacunacion = new PlanVacunacion{
+                Id = 1,
+                Nombre = "Brigada 2021 Papiloma Humano",
+                Descripcion = "Jornada de vacunación COMUNITARIA del papiloma humano"
+            };
+
+            repoPlanVacunacion.EditarPlanVacunacion(planvacunacion);
+        }
+
+        private static void EliminarPlanVacunacion(int idPlanVacunacion){
+            repoPlanVacunacion.EliminarPlanVacunacion(idPlanVacunacion);
+        } 
+
+        private static void AgregarHistoriaClinica(){
+            var historiaclinica = new HistoriaClinica{
+                ContenidoHistoriaClinica = "bla bla bla bla bla bla bla bla bla bla bla bla",
+                FechaHistoriaClinica = new DateTime(2021, 02, 02),
+                IdAnimal = 1,
+                IdDiagnostico = 1
+            };
+            repoHistoriaClinica.AgregarHistoriaClinica(historiaclinica);
+        }
+
+        private static void BuscarHistoriaClinica(int idHistoriaClinica){
+            var historiaclinica = repoHistoriaClinica.ObtenerHistoriaClinica(idHistoriaClinica);
+            Console.WriteLine("el contenido de la Historia Clinica es: " + historiaclinica.ContenidoHistoriaClinica);
+        }
+
+        private static void EditarHistoriaClinica(){
+            var historiaclinica = new HistoriaClinica{
+                Id = 1,
+                ContenidoHistoriaClinica = "Paula se fue y le dolio la cabeza",
+                FechaHistoriaClinica = new DateTime(2021, 03, 03),
+                IdAnimal = 1,
+                IdDiagnostico = 1
+            };
+
+            repoHistoriaClinica.EditarHistoriaClinica(historiaclinica);
+        }
+
+        private static void EliminarHistoriaClinica(int idHistoriaClinica){
+            repoHistoriaClinica.EliminarHistoriaClinica(idHistoriaClinica);
+        } 
+
+        private static void AgregarAdministrador(){
+            var administrador = new Administrador{
+                Nombre = "Alex Morales",
+                Telefono = "3103216156",
+                Edad = 42,
+                Direccion = "Cra 7 #23-20",
+                Correo = "casanare@gmail.com",
+                Contrasena = "LaM1sm4",
+            }; 
+            repoAdministrador.AgregarAdministrador(administrador);
+        }
+
+        private static void EditarAdministrador(){
+            var administrador = new Administrador{
+                Id = 1,
+                Nombre = "Rafael Morales",
+                Telefono = "3103216156",
+                Edad = 42,
+                Direccion = "Calle 17 #23-20",
+                Correo = "casanare@gmail.com",
+                Contrasena = "LaM1sm4",
+            }; 
+            repoAdministrador.EditarAdministrador(administrador);
+        }
+
+        private static void BuscarAdministrador(int idAdministrador){
+            var administrador = repoAdministrador.ObtenerAdministrador(idAdministrador);
+            Console.WriteLine("el nombre del Administrador es: " + administrador.Nombre);
+        }
+
+        private static void EliminarAdministrador(int idAdministrador){
+            repoAdministrador.EliminarAdministrador(idAdministrador);
         }
 
         private static void AgregarVacuna(){
