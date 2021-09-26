@@ -15,9 +15,15 @@ namespace Veterinaria.App.Consola
         private static IRepositorioHistoriaClinica repoHistoriaClinica = new RepositorioHistoriaClinica(new Persistencia.AppContext());
         private static IRepositorioAdministrador repoAdministrador = new RepositorioAdministrador(new Persistencia.AppContext());
         private static IRepositorioCita repoCita = new RepositorioCita(new Persistencia.AppContext());
+        private static IRepositorioDueno repoDueno = new RepositorioDueno(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {  
+            //AgregarDueno();
+            //BuscarDueno(1);
+            //EditarDueno();
+            //EliminarDueno(2); 
+
             //AgregarCita();
             //BuscarCita(1);
             //EditarCita();
@@ -58,6 +64,41 @@ namespace Veterinaria.App.Consola
             //EditarVeterinario();
             //BuscarVeterinario(1);
             //Console.WriteLine("Hello World!");
+        }
+
+
+        private static void AgregarDueno(){
+            var dueno = new Dueno{
+                Nombre = "Alex Morales",
+                Telefono = "3103216156",
+                Edad = 42,
+                Direccion = "Cra 7 #23-20",
+                Correo = "casanare@gmail.com",
+                Contrasena = "LaM1sm4",
+            }; 
+            repoDueno.AgregarDueno(dueno);
+        }
+
+        private static void EditarDuenor(){
+            var dueno = new Dueno{
+                Id = 1,
+                Nombre = "Rafael Morales",
+                Telefono = "3103216156",
+                Edad = 42,
+                Direccion = "Calle 17 #23-20",
+                Correo = "casanare@gmail.com",
+                Contrasena = "LaM1sm4",
+            }; 
+            repoDueno.EditarDueno(dueno);
+        }
+
+        private static void BuscarDueno(int idDueno){
+            var dueno = repoDueno.ObtenerDueno(idDueno);
+            Console.WriteLine("el nombre del Dueño es: " + dueno.Nombre);
+        }
+
+        private static void EliminarDueno(int idDueno){
+            repoDueno.EliminarDueno(idDueno);
         }
 
         private static void AgregarCita(){
