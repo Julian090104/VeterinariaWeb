@@ -14,9 +14,15 @@ namespace Veterinaria.App.Consola
         private static IRepositorioPlanVacunacion repoPlanVacunacion = new RepositorioPlanVacunacion(new Persistencia.AppContext());
         private static IRepositorioHistoriaClinica repoHistoriaClinica = new RepositorioHistoriaClinica(new Persistencia.AppContext());
         private static IRepositorioAdministrador repoAdministrador = new RepositorioAdministrador(new Persistencia.AppContext());
+        private static IRepositorioCita repoCita = new RepositorioCita(new Persistencia.AppContext());
 
         static void Main(string[] args)
         {  
+            //AgregarCita();
+            //BuscarCita(1);
+            //EditarCita();
+            //EliminarCita(2);
+
             //AgregarPlanVacunacion();
             //BuscarPlanVacunacion(1);
             //EditarPlanVacunacion();
@@ -53,6 +59,39 @@ namespace Veterinaria.App.Consola
             //BuscarVeterinario(1);
             //Console.WriteLine("Hello World!");
         }
+
+        private static void AgregarCita(){
+            var cita = new Cita{
+                FechaCita = new DateTime(2021, 09, 24),
+                TipoConsulta = "Ambulatoria",
+                MotivoConsulta = "La mascota presenta fuertes dolores abdominales",
+                IdDueno = 1,
+                IdVeterinario = 5
+            };
+            repoCita.AgregarCita(cita);
+        }
+
+        private static void BuscarCita(int idCita){
+            var cita = repoCita.ObtenerCita(idCita);
+            Console.WriteLine("el motivo de consulta de la cita es: " + cita.MotivoConsulta);
+        }
+
+         private static void EditarCita(){
+            var cita = new Cita{
+                Id = 1,
+                FechaCita = new DateTime(2021, 10, 24),
+                TipoConsulta = "De Urgencia",
+                MotivoConsulta = "La mascota presenta fuertes dolores abdominales, y en la parte superior del cuello",
+                IdDueno = 1,
+                IdVeterinario = 8
+            };
+
+            repoCita.EditarCita(cita);
+        }
+
+        private static void EliminarCita(int idCita){
+            repoCita.EliminarCita(idCita);
+        } 
 
         private static void AgregarPlanVacunacion(){
             var planvacunacion = new PlanVacunacion{
