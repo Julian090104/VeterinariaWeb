@@ -19,35 +19,35 @@ namespace Veterinaria.App.Consola
 
         static void Main(string[] args)
         {  
-            //AgregarDueno();
+            AgregarDueno();
             //BuscarDueno(1);
             //EditarDueno();
-            //EliminarDueno(2); 
+            //EliminarDueno(1); 
 
             //AgregarCita();
-            //BuscarCita(1);
+            //BuscarCita(2);
             //EditarCita();
-            //EliminarCita(2);
+            //EliminarCita(1);
 
             //AgregarPlanVacunacion();
             //BuscarPlanVacunacion(1);
             //EditarPlanVacunacion();
-            //EliminarPlanVacunacion(2);
+            //EliminarPlanVacunacion(1);
 
             //AgregarHistoriaClinica();
             //BuscarHistoriaClinica(1);
             //EditarHistoriaClinica();
-            //EliminarHistoriaClinica(2);
+            //EliminarHistoriaClinica(1);
 
-            //AgregarAdministrador();
+            AgregarAdministrador();
             //BuscarAdministrador(1);
             //EditarAdministrador();
-            //EliminarAdministrador(1);
+            //EliminarAdministrador(2);
            
             //AgregarVacuna();
             //BuscarVacuna(1);
             //EditarVacuna();
-           //EliminarVacuna(2);
+            //EliminarVacuna(1);
 
             //AgregarDiagnostico();
             //BuscarDiagnostico(1);
@@ -59,10 +59,11 @@ namespace Veterinaria.App.Consola
             //EditarAnimal();
             //EliminarAnimal(1);
 
-            //AgregarVeterinario();
-            //EliminarVeterinario(2);
+            AgregarVeterinario();
+            //EliminarVeterinario(3);
             //EditarVeterinario();
-            //BuscarVeterinario(1);
+            //BuscarVeterinario(3);
+
             //Console.WriteLine("Hello World!");
         }
 
