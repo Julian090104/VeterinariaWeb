@@ -2,33 +2,40 @@
 @model Veterinaria.App.Presentacions.Page.loginModel
 @{
 }
-<link
-      href="https://unpkg.com/tailwindcss/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+<link rel="stylesheet" href="~/css/login.css" />
+<script src="~/js/site.js"></script>
 
-<div class="fixed inset-0 flex items-center justify-center" style="background-color: rgba(0,0,0,0.3);">
-        <div class="bg-gray-300 max-w-lg p-8 sm:pb-4 rounded shadow-lg text-center sm:text-left">
-
-            <h3 class="text-xl sm:text-2xl font-semibold mb-6 flex flex-col sm:flex-row items-center">
-                <div class="bg-green-200 p-2 rounded-full flex items-center mb-4 sm:mb-0 sm:mr-2">
-                    <svg class="text-green-800 inline-block w-5 h-5" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" viewBox="0 0 24 24">
-                        <path d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"></path>
-                    </svg>
-                </div>
-                <span id="title">Inicio de sesión</span>
-            </h3>
-
-            <section id="content">
-                <label  class="my-1 p-2" for="">User: <select name="user" id="user" class="rounded-lg"></select>'
-                <br>
-                <label class="my-1 p-2 " for="">Password: <input id="password" class="shadow-sm rounded-lg mx-2 w-14 text-center" type="text" placeholder="*****"></label>
-            </section>
-
-            <div class="mt-8 pt-8 sm:pt-4 border-t -mx-8 px-8 flex flex-col sm:flex-row justify-end leading-relaxed">
-                <button id="close" class="px-8 py-3 sm:py-2 rounded border border-gray-400 hover:bg-gray-200 transition duration-300">Cerrar</button>
-                <button id="accept" class="font-bold mt-4 sm:mt-0 sm:ml-4 px-8 py-3 sm:py-2 rounded bg-purple-700 text-gray-100 hover:bg-purple-900 transition duration-300 text-center">Enviar</button>
-            </div>
-        </div>
-    </div>
-
+<body>
+    <div class="login-reg-panel">
+		<div class="login-info-box">
+			<h2>Tienes una cuenta?</h2>
+			<p>Inicia sesión para realizar trámites para tu mascota</p>
+			<label id="label-register" for="log-reg-show">Iniciar sesión</label>
+			<input type="radio" name="active-log-panel" id="log-reg-show"  checked="checked">
+		</div>
+							
+		<div class="register-info-box">
+			<h2>No tienes un cuenta?</h2>
+			<p>Regístrate para tener acceso a mayores beneficios</p>
+			<label id="label-login" for="log-login-show">Regístrate</label>
+			<input type="radio" name="active-log-panel" id="log-login-show">
+		</div>
+							
+		<div class="white-panel">
+			<div class="login-show">
+				<h2>Iniciar</h2>
+				<input type="text" placeholder="Correo">
+				<input type="password" placeholder="Constraseña">
+				<input type="button" value="Iniciar sesión">
+				<a href="">Olvidaste tu contraseña?</a>
+			</div>
+			<div class="register-show">
+				<h2>Regístrate</h2>
+				<input type="text" placeholder="Correo">
+				<input type="password" placeholder="Contraseña">
+				<input type="password" placeholder="Confirmar Contraseña">
+				<input type="button" value="Registrar">
+			</div>
+		</div>
+	</div>
+</body>
