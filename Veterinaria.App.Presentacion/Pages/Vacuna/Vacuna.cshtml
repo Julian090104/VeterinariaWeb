@@ -1,0 +1,149 @@
+﻿@page
+@model Veterianaria.App.Presentacion.Pages.VacunaModel
+@{
+}
+
+<h3>Administra Información sobre Vacunas! <span class="badge badge-secondary"></span></h3>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-admin-vacuna" aria-expanded="true"
+                    aria-controls="id-collapse-admin-vacuna">
+                    Administrador de Vacunas
+                </button>
+            </h2>
+        </div>
+
+        <div id="id-collapse-admin-vacuna" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="disabledTextInput">IdVacuna</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
+                            </div>
+                        </fieldset>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">*Seleccion Nombre de la Vacuna</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Seleccione la Vacuna:</option>
+                                <option>Vacuna 1</option>
+                                <option>Vacuna 2</option>
+                                <option>Vacuna 3</option>
+                                <option>Vacuna 4</option>
+                                <option>Vacuna 5</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="inputDate">Fecha de Vacuna</label>
+                            <input type="Date" class="form-control" id="inputDate" placeholder="Fecha Vacuna">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <div class="form-check">
+                                <label for="inputEnf">Enfermedades a Proteger: </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                    Enfermedad 1...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck2">
+                                <label class="form-check-label" for="gridCheck2">
+                                    Enfermedad 2...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck3">
+                                <label class="form-check-label" for="gridCheck3">
+                                    Enfermedad 3...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck4">
+                                <label class="form-check-label" for="gridCheck4">
+                                    Enfermedad 4...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck5">
+                                <label class="form-check-label" for="gridCheck5">
+                                    Enfermedad 5...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck6">
+                                <label class="form-check-label" for="gridCheck6">
+                                    Enfermedad 6...
+                                </label>
+                            </div>
+                        </div>
+                            <div class="form-group row">
+                                <label for="exampleFormControlTextarea1">Contraindicaciones:</label>
+                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">Escriba las contraindicaciones</textarea>
+                            </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary">Agregar</button>
+                    <button type="submit" class="btn btn-success">Editar</button>
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-vacuna" aria-expanded="false"
+                    aria-controls="id-collapse-listar-vacuna">
+                    Listar Vacunas
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-vacuna" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">IdVacuna</th>
+                            <th scope="col">NombreVacuna</th>
+                            <th scope="col">FechaVacuna</th>
+                            <th scope="col">EnfermedadQueProtege</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>1</td>
+                            <td>Rabia</td>
+                            <td>01/01/2020</td>
+                            <td>Enfermedad 1, Enfermedad 2</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>2</td>
+                            <td>Fiebre Amarilla</td>
+                            <td>01/06/2020</td>
+                            <td>Enfermedad 2, Enfermedad 4</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>3</td>
+                            <td>H1N1</td>
+                            <td>01/02/2021</td>
+                            <td>Enfermedad 5</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

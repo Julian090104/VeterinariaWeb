@@ -34,3 +34,4 @@ C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Presentacion\obj\Debug\netcoreapp3.1\Veterinaria.App.Presentacion.pdb
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Presentacion\obj\Debug\netcoreapp3.1\Veterinaria.App.Presentacion.csproj.CopyComplete
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Login\login.cshtml.g.cs
+C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Presentacion\obj\Debug\netcoreapp3.1\Razor\Pages\Vacuna\Vacuna.cshtml.g.cs
