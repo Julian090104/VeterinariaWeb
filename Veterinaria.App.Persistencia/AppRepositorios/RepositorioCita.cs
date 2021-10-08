@@ -55,7 +55,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<Cita> IRepositorioCita.ObtenerTodaslasCita(){
-            return null;
+            return this.appContext.Citas;
         }
     }
 }

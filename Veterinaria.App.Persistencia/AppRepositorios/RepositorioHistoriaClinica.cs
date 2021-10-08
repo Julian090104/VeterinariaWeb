@@ -50,7 +50,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<HistoriaClinica> IRepositorioHistoriaClinica.ObtenerTodaslasHistoriaClinica(){
-            return null;
+            return this.appContext.HistoriasClinicas;
         }
 
     }

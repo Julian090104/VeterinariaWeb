@@ -50,7 +50,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<PlanVacunacion> IRepositorioPlanVacunacion.ObtenerTodoslosPlanVacunacion(){
-            return null;
+            return this.appContext.PlanesVacunaciones;
         }
 
     }

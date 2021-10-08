@@ -1,0 +1,101 @@
+﻿@page
+@model Veterinaria.App.Presentacion.Pages.PageAnimalModel
+@{
+}
+<h3>Administra Información sobre tus Máscotas! <span class="badge badge-secondary"></span></h3>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-admin-animal" aria-expanded="true"
+                    aria-controls="id-collapse-admin-animal">
+                    Administrador de Mascotas
+                </button>
+            </h2>
+        </div>
+
+        <div id="id-collapse-admin-animal" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="disabledTextInput">IdMascota</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
+                            </div>
+                        </fieldset>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Nombre: <input type="text"></label>
+                        </div>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Edad: <input type="number"></label>
+                        </div>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Id Plan Vacunación: <input type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Id Dueño: <input type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Id Veterinario: <input type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Id Vacuna: <input type="number" width="5"></label>
+                        </div>
+                       
+                    <button type="button" class="btn btn-secondary mx-1">Agregar</button>
+                    <button type="submit" class="btn btn-success mx-1">Editar</button>
+                    <button type="submit" class="btn btn-danger mx-1">Eliminar</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-animal" aria-expanded="false"
+                    aria-controls="id-collapse-listar-animal">
+                    Listar Mascotas
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-animal" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Edad</th>
+                            <th scope="col">IdPlanVacunacion</th>
+                            <th scope="col">IdDueño</th>
+                            <th scope="col">IdVeterinario</th>
+                            <th scope="col">IdVacuna</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                       @foreach (var m in Model.listaMascotas)
+                       {
+                           <tr>
+
+                               <th scope="row">1</th>
+                               <td>@m.Nombre</td>
+                               <td>@m.Edad</td>
+                               <td>@m.IdPlanVacunacion</td>
+                               <td>@m.IdDueno</td>
+                               <td>@m.IdVeterinario</td>
+                               <td>@m.IdVacuna</td>
+
+                           </tr>
+                       }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

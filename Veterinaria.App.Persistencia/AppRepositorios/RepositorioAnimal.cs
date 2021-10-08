@@ -55,7 +55,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<Animal> IRepositorioAnimal.ObtenerTodoslosAnimales(){
-            return null;
+            return this.appContext.Animales;
         }
 
     }

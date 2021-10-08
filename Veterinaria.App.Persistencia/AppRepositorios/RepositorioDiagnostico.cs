@@ -52,7 +52,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<Diagnostico> IRepositorioDiagnostico.ObtenerTodoslosDiagnosticos(){
-            return null;
+            return this.appContext.Diagnosticos;
         }
         
     }

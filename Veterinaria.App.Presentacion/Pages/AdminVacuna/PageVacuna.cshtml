@@ -1,5 +1,5 @@
 ﻿@page
-@model Veterianaria.App.Presentacion.Pages.VacunaModel
+@model Veterinaria.App.Presentacion.Pages.PageVacunaModel
 @{
 }
 
@@ -113,37 +113,30 @@
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">IdVacuna</th>
                             <th scope="col">NombreVacuna</th>
                             <th scope="col">FechaVacuna</th>
+                            <th scope="col">Contraindicación</th>
                             <th scope="col">EnfermedadQueProtege</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>1</td>
-                            <td>Rabia</td>
-                            <td>01/01/2020</td>
-                            <td>Enfermedad 1, Enfermedad 2</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>2</td>
-                            <td>Fiebre Amarilla</td>
-                            <td>01/06/2020</td>
-                            <td>Enfermedad 2, Enfermedad 4</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>3</td>
-                            <td>H1N1</td>
-                            <td>01/02/2021</td>
-                            <td>Enfermedad 5</td>
-                        </tr>
+                        
+                       @foreach (var v in Model.listaVacunas)
+                       {
+                           <tr>
+
+                               <th scope="row">1</th>
+                               <td>@v.NombreVacuna</td>
+                               <td>@v.FechaVacuna</td>
+                               <td>@v.Contraindicaciones</td>
+                               <td>@v.ProteccionContra</td>
+
+                           </tr>
+                       }
                     </tbody>
                 </table>
             </div>
         </div>
     </div>
 </div>
+

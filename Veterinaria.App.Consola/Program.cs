@@ -24,17 +24,17 @@ namespace Veterinaria.App.Consola
             //EditarDueno();
             //EliminarDueno(1); 
 
-            //AgregarCita();
+            AgregarCita();
             //BuscarCita(2);
             //EditarCita();
             //EliminarCita(1);
 
-            //AgregarPlanVacunacion();
+            AgregarPlanVacunacion();
             //BuscarPlanVacunacion(1);
             //EditarPlanVacunacion();
             //EliminarPlanVacunacion(1);
 
-            //AgregarHistoriaClinica();
+            AgregarHistoriaClinica();
             //BuscarHistoriaClinica(1);
             //EditarHistoriaClinica();
             //EliminarHistoriaClinica(1);
@@ -44,17 +44,17 @@ namespace Veterinaria.App.Consola
             //EditarAdministrador();
             //EliminarAdministrador(2);
            
-            //AgregarVacuna();
+            AgregarVacuna();
             //BuscarVacuna(1);
             //EditarVacuna();
             //EliminarVacuna(1);
 
-            //AgregarDiagnostico();
+            AgregarDiagnostico();
             //BuscarDiagnostico(1);
             //EditarDiagnostico();
             //EliminarDiagnostico(1);
 
-            //AgregarAnimal();
+            AgregarAnimal();
             //BuscarAnimal(2);
             //EditarAnimal();
             //EliminarAnimal(1);

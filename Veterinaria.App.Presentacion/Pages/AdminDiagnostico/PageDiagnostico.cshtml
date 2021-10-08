@@ -1,0 +1,93 @@
+﻿@page
+@model Veterinaria.App.Presentacion.Pages.PageDiagnosticoModel
+@{
+}
+<h3>Administra Información sobre tus Diagnosticos! <span class="badge badge-secondary"></span></h3>
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-admin-diagnostico" aria-expanded="true"
+                    aria-controls="id-collapse-admin-diagnostico">
+                    Administrador de Diagnosticos
+                </button>
+            </h2>
+        </div>
+
+        <div id="id-collapse-admin-diagnostico" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <fieldset disabled col-md-6>
+                            <div class="form-group col-md-6">
+                                <label for="disabledTextInput">IdDiagnostico</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
+                            </div>
+                        </fieldset>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="">Tipo de Diagnóstico: </label> <select id="diganostico" name="diagnosticos">
+                                <option value="Tratable">Tratable</option>
+                                <option value="Riesgoso de Contagio">Riesgoso de Contagio</option>
+                            </select>
+                        </div>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="">Nombre: <input type="text"></label>
+                        </div>
+                        <div class="form-group col-md-3 mx-3">
+                            <label for="">Descripción: <input type="text"></label>
+                        </div>
+
+
+                        <div class="form-group col-md-12">
+                            <button type="button" class="btn btn-secondary mx-1">Agregar</button>
+                            <button type="submit" class="btn btn-success mx-1">Editar</button>
+                            <button type="submit" class="btn btn-danger mx-1">Eliminar</button>
+                        </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-diagnostico" aria-expanded="false"
+                    aria-controls="id-collapse-listar-diagnostico">
+                    Listar Mascotas
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-diagnostico" class="collapse" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo de Diagnóstico</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (var d in Model.listaDiagnosticos)
+                        {
+                            <tr>
+
+                                <th scope="row">1</th>
+                                <td>@d.TipoDiagnostico</td>
+                                <td>@d.NombreDiagnostico</td>
+                                <td>@d.DescripcionDiagnostico</td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
