@@ -1,0 +1,120 @@
+﻿@page
+@model Veterianaria.App.Presentacion.Pages.AdPlanVacunacionModel
+@{
+}
+<h3>Administra Información sobre el Plan de Vacunación! <span class="badge badge-secondary"></span></h3>
+@* <button type="submit" class="btn btn-secondary bg-danger" onclick-"actualizarLista()">Actualizar lista</button> *@
+
+<div class="accordion" id="accordionExample">
+    <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-planvacuna" aria-expanded="false"
+                    aria-controls="id-collapse-listar-planvacuna">
+                    Listar Plan Vacunación
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-planvacuna" class="collapse show" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            @* <th scope="col">#</th> *@
+                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripcion</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="POST">
+                            @foreach (var pv in Model.listaPlanVacuna)
+                            {
+                            <tr>
+                                @* <th scope="row">1</th> *@
+                                <td>@pv.Id</td>
+                                <td>@pv.Nombre</td>
+                                <td>@pv.Descripcion</td>
+
+                                <td>
+                                        <button type="submit" class="btn btn-primary bg-success"
+                                        style="margin-right: 20px">Editar</button>
+                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                        asp-route-idPlanVacunacion="@pv.Id">Eliminar</button>
+                                </td>
+                            </tr>
+                            }
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-admin-planvacuna" aria-expanded="true"
+                    aria-controls="id-collapse-admin-planvacuna">
+                    Administrador Plan Vacunación
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-admin-planvacuna" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="id-planvacunacion">IdPlanVacunacion</label>
+                                <input type="text" id="id-planvacunacion" class="form-control" placeholder="IdPlanVacunacion" name="Id">
+                            </div>
+                        </fieldset>
+                        <div class="form-group col-md-6">
+                            <label for="id-nombrepv">*Digite Nombre del Plan de Vacunación:</label>
+                            <input type="text" id="id-nombrepv" class="form-control" placeholder="NombrePlanVacunacion" name="Nombre">
+                        </div>
+                            <div class="form-group col-md-6">
+                                <label for="id-descripcionpv">Descripción del Plan Vacunación:</label>
+                                <textarea class="form-control" id="id-descripcionpv" rows="5" name="Descripcion"></textarea>
+                            </div>
+                    </div>
+                    <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function actualizarLista(){
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status == 200){
+                alert(xhttp.responseText);
+            }
+            else {
+                alert("Algo falló");
+            }
+        }
+        //Asíncrono
+        xhttp.open("GET", "https://localhost:4004/WeatherForecast", true)
+        xhttp.send();
+
+        @* $.ajax(
+                {
+                type: "GET", // la variable type guarda el tipo de la peticion GET,POST,..
+                url: "https://localhost:5004/Login", //url guarda la ruta hacia donde se hace la peticion
+                success: function (datos) { //success es una funcion que se utiliza si el servidor retorna informacion
+                alert(datos);
+                },
+                dataType: 'text' // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
+                }
+                ); *@
+
+    }
+</script>

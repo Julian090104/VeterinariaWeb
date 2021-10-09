@@ -5743,11 +5743,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Presentacion\\Veterinaria.App.Presentacion.csproj",
+      "projectUniqueName": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Presentacion\\Veterinaria.App.Presentacion.csproj",
       "projectName": "Veterinaria.App.Presentacion",
-      "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Presentacion\\Veterinaria.App.Presentacion.csproj",
+      "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Presentacion\\Veterinaria.App.Presentacion.csproj",
       "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Presentacion\\obj\\",
+      "outputPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Presentacion\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5761,11 +5761,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj": {
-              "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj"
+            "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj": {
+              "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj"
             },
-            "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj": {
-              "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj"
+            "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj": {
+              "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj"
             }
           }
         }

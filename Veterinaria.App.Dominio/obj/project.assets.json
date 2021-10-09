@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj",
+      "projectUniqueName": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj",
       "projectName": "Veterinaria.App.Dominio",
-      "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj",
+      "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj",
       "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\obj\\",
+      "outputPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config"

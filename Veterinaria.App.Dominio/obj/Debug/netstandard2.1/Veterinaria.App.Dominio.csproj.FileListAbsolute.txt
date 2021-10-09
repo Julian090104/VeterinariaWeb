@@ -10,3 +10,11 @@ C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Dominio\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.pdb
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.dll
 C:\Users\julia\Downloads\ProyectoVeterinariaWeb\Veterinaria.App\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.pdb
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.deps.json
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.dll
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\bin\Debug\netstandard2.1\Veterinaria.App.Dominio.pdb
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.csprojAssemblyReference.cache
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.AssemblyInfoInputs.cache
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.AssemblyInfo.cs
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.dll
+C:\Users\julia\OneDrive\Documentos\GitHub\ProyectoVeterinaria\VeterinariaWeb\Veterinaria.App.Dominio\obj\Debug\netstandard2.1\Veterinaria.App.Dominio.pdb
