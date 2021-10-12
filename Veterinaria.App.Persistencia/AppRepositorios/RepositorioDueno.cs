@@ -50,11 +50,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<Dueno> IRepositorioDueno.ObtenerTodoslosDueno(){
-            /* return this.appContext.Personas.Where(d => d.Discriminator == Dueno); */
-            foreach(var e in this.appContext.Duenos){
-                Console.WriteLine(e);
-            }
-            return null;
+            return this.appContext.Duenos;
         }
     }
 }

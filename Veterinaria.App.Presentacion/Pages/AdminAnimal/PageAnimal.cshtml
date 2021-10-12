@@ -5,53 +5,6 @@
 <h3>Administra Información sobre tus Máscotas! <span class="badge badge-secondary"></span></h3>
 <div class="accordion" id="accordionExample">
     <div class="card">
-        <div class="card-header" id="headingOne">
-            <h2 class="mb-0">
-                <button class="btn btn-link" type="button" data-toggle="collapse"
-                    data-target="#id-collapse-admin-animal" aria-expanded="true"
-                    aria-controls="id-collapse-admin-animal">
-                    Administrador de Mascotas
-                </button>
-            </h2>
-        </div>
-
-        <div id="id-collapse-admin-animal" class="collapse" aria-labelledby="headingOne"
-            data-parent="#accordionExample">
-            <div class="card-body">
-                <form>
-                    <div class="form-row">
-                        <fieldset disabled>
-                            <div class="form-group col-md-6">
-                                <label for="disabledTextInput">IdMascota</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
-                            </div>
-                        </fieldset>
-                        <div class="form-group col-md-2 mx-3">
-                            <label for="exampleFormControlSelect1">Nombre: <input type="text"></label>
-                        </div>
-                        <div class="form-group col-md-2 mx-3">
-                            <label for="exampleFormControlSelect1">Edad: <input type="number"></label>
-                        </div>
-                        <div class="form-group col-md-2 mx-3">
-                            <label for="exampleFormControlSelect1">Id Plan Vacunación: <input type="number"></label>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect1">Id Dueño: <input type="number"></label>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect1">Id Veterinario: <input type="number"></label>
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect1">Id Vacuna: <input type="number" width="5"></label>
-                        </div>
-                       
-                     <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
-                    
-                </form>
-            </div>
-        </div>
-    </div>
-    <div class="card">
         <div class="card-header" id="headingTwo">
             <h2 class="mb-0">
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
@@ -61,7 +14,7 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-listar-animal" class="collapse" aria-labelledby="headingTwo"
+        <div id="id-collapse-listar-animal" class="collapse show" aria-labelledby="headingTwo"
             data-parent="#accordionExample">
             <div class="card-body">
                 <table class="table table-hover">
@@ -77,26 +30,73 @@
                         </tr>
                     </thead>
                     <tbody>
-                       @foreach (var m in Model.listaMascotas)
-                       {
-                           <tr>
-                               <td>@m.Id</td>
-                               <td>@m.Nombre</td>
-                               <td>@m.Edad</td>
-                               <td>@m.IdPlanVacunacion</td>
-                               <td>@m.IdDueno</td>
-                               <td>@m.IdVeterinario</td>
-                               <td>@m.IdVacuna</td>
-                               <td>
-                                        <button type="submit" class="btn btn-primary bg-success"
-                                        style="margin-right: 20px">Editar</button>
-                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                        asp-route-idAnimal="@m.Id">Eliminar</button>
-                                </td>
-                           </tr>
-                       }
+                        <form method="POST">
+                            @foreach (var m in Model.listaMascotas)
+                            {
+                                <tr>
+                                    <td>@m.Id</td>
+                                    <td>@m.Nombre</td>
+                                    <td>@m.Edad</td>
+                                    <td>@m.IdPlanVacunacion</td>
+                                    <td>@m.IdDueno</td>
+                                    <td>@m.IdVeterinario</td>
+                                    <td>@m.IdVacuna</td>
+                                    <td>
+                                                <button type="submit" class="btn btn-primary bg-success"
+                                                style="margin-right: 20px">Editar</button>
+                                                <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                                asp-route-idAnimal="@m.Id">Eliminar</button>
+                                        </td>
+                                </tr>
+                            }
+                        </form>
                     </tbody>
                 </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header" id="headingOne">
+            <h2 class="mb-0">
+                <button class="btn btn-link" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-admin-animal" aria-expanded="true"
+                    aria-controls="id-collapse-admin-animal">
+                    Administrador de Mascotas
+                </button>
+            </h2>
+        </div>
+
+        <div id="id-collapse-admin-animal" class="collapse" aria-labelledby="headingOne"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <form method="POST">
+                    <div class="form-row">
+                        <fieldset disabled>
+                            <div class="form-group col-md-6">
+                                <label for="disabledTextInput">IdMascota</label>
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
+                            </div>
+                        </fieldset>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Nombre: <input name="Nombre" type="text"></label>
+                        </div>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Edad: <input name="Edad" type="number"></label>
+                        </div>
+                        <div class="form-group col-md-2 mx-3">
+                            <label for="exampleFormControlSelect1">Id Plan Vacunación: <input name="IdPlanVacunacion" type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Dueño: <input name="IdDueno" type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Veterinario: <input name="IdVeterinario" type="number"></label>
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="exampleFormControlSelect1">Vacuna: <input name="IdVacuna" type="number" width="5"></label>
+                        </div>
+                        <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
+                </form>
             </div>
         </div>
     </div>

@@ -5,6 +5,55 @@
 <h3>Administra Información sobre tus Citas! <span class="badge badge-secondary"></span></h3>
 <div class="accordion" id="accordionExample">
     <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-cita" aria-expanded="false"
+                    aria-controls="id-collapse-listar-cita">
+                    Listar Mascotas
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-cita" class="collapse show" aria-labelledby="headingTwo" data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">FechaCita</th>
+                            <th scope="col">TipoConsulta</th>
+                            <th scope="col">MotivoConsulta</th>
+                            <th scope="col">IdDueño</th>
+                            <th scope="col">IdVeterinario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="POST">
+                            @foreach (var c in Model.listaCitas)
+                            {
+                                <tr>
+
+                                    <th scope="row">1</th>
+                                    <td>@c.FechaCita</td>
+                                    <td>@c.TipoConsulta</td>
+                                    <td>@c.MotivoConsulta</td>
+                                    <td>@c.IdDueno</td>
+                                    <td>@c.IdVeterinario</td>
+                                    <td>
+                                            <button type="submit" class="btn btn-primary bg-success"
+                                            style="margin-right: 20px">Editar</button>
+                                            <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                            asp-route-idCita="@c.Id">Eliminar</button>
+                                    </td>
+                                </tr>
+                            }
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#id-collapse-admin-cita"
@@ -16,7 +65,7 @@
 
         <div id="id-collapse-admin-cita" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
             <div class="card-body">
-                <form>
+                <form method="POST">
                     <div class="form-row">
                         <fieldset disabled>
                             <div class="form-group col-md-6">
@@ -25,76 +74,26 @@
                             </div>
                         </fieldset>
                         <div class="form-group col-md-2 mx-3">
-                            <label for="exampleFormControlSelect1">Fecha: <input type="date"></label>
+                            <label for="exampleFormControlSelect1">Fecha: <input name="FechaCita" type="date"></label>
                         </div>
                         <div class="form-group col-md-2 mx-3">
                             <label for="">Tipo Consulta: </label> <select id="citas"
-                                name="citas">
-                                <option value="volvo">Externa-Ambulatoria</option>
-                                <option value="saab">Emergencia</option>
+                                name="TipoConsulta">
+                                <option value="Externa-Ambulatoria">Externa-Ambulatoria</option>
+                                <option value="Emergencia">Emergencia</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2 mx-3">
-                            <label for="exampleFormControlSelect1">Motivo Consulta: <input type="text"></label>
+                            <label for="exampleFormControlSelect1">Motivo Consulta: <input name="MotivoConsulta" type="text"></label>
                         </div>
                         <div class="form-group col-md-4">
-                            <label for="exampleFormControlSelect1">Id Dueño: <input type="number"></label>
+                            <label for="exampleFormControlSelect1">Id Dueño: <input name="IdDueno" type="number"></label>
                         </div>
                         <div class="form-group col-md-8">
-                            <label for="exampleFormControlSelect1">Id Veterinario: <input type="number"></label>
+                            <label for="exampleFormControlSelect1">Id Veterinario: <input name="IdVeterinario" type="number"></label>
                         </div>
-
                          <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
-
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#id-collapse-listar-cita" aria-expanded="false"
-                    aria-controls="id-collapse-listar-cita">
-                    Listar Mascotas
-                </button>
-            </h2>
-        </div>
-        <div id="id-collapse-listar-cita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">FechaCita</th>
-                            <th scope="col">TipoConsulta</th>
-                            <th scope="col">MotivoConsulta</th>
-                            <th scope="col">IdDueño</th>
-                            <th scope="col">IdVeterinario</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var c in Model.listaCitas)
-                        {
-                            <tr>
-
-                                <th scope="row">1</th>
-                                <td>@c.FechaCita</td>
-                                <td>@c.TipoConsulta</td>
-                                <td>@c.MotivoConsulta</td>
-                                <td>@c.IdDueno</td>
-                                <td>@c.IdVeterinario</td>
-                                <td>
-                                        <button type="submit" class="btn btn-primary bg-success"
-                                        style="margin-right: 20px">Editar</button>
-                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                        asp-route-idCita="@c.Id">Eliminar</button>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

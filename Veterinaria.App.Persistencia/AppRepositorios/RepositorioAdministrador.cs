@@ -50,7 +50,7 @@ namespace Veterinaria.App.Persistencia
         }
 
         IEnumerable<Administrador> IRepositorioAdministrador.ObtenerTodoslosAdministrador(){
-            return null;
+            return this.appContext.Administradores;
         }
 
     }

@@ -27,7 +27,7 @@ namespace Veterinaria.App.Presentacion.Pages
         public void OnPostDel(int idAdministrador){
             repoAdministrador.EliminarAdministrador(idAdministrador);
             this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();
-            }
+        }
         public void OnPostEdit(Administrador administrador){
             repoAdministrador.EditarAdministrador(administrador);
             this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();

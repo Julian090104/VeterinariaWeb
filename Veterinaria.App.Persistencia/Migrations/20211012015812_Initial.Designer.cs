@@ -10,7 +10,7 @@ using Veterinaria.App.Persistencia;
 namespace Veterinaria.App.Persistencia.Migrations
 {
     [DbContext(typeof(AppContext))]
-    [Migration("20210926134600_Initial")]
+    [Migration("20211012015812_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

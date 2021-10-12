@@ -1,6 +1,5 @@
 using Veterinaria.App.Dominio;
 using Microsoft.EntityFrameworkCore;
-/* using System.Collections.Generic; */
 
 namespace Veterinaria.App.Persistencia{
     
@@ -19,7 +18,7 @@ namespace Veterinaria.App.Persistencia{
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder){
             if (!optionsBuilder.IsConfigured){
-                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = VeterinariaAdmin");
+                optionsBuilder.UseSqlServer("Data source = (localdb)\\MSSQLLocalDB; Initial Catalog = VeterinariaOctubre");
             
             }
         }        

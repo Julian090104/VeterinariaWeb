@@ -5,6 +5,51 @@
 <h3>Administra Información sobre tus Diagnosticos! <span class="badge badge-secondary"></span></h3>
 <div class="accordion" id="accordionExample">
     <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-diagnostico" aria-expanded="false"
+                    aria-controls="id-collapse-listar-diagnostico">
+                    Listar Diagnosticos
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-diagnostico" class="collapse show" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Tipo de Diagnóstico</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="POST">
+                            @foreach (var d in Model.listaDiagnosticos)
+                            {
+                                <tr>
+                                    <td>@d.Id</td>
+                                    <td>@d.TipoDiagnostico</td>
+                                    <td>@d.NombreDiagnostico</td>
+                                    <td>@d.DescripcionDiagnostico</td>
+                                    <td>
+                                            <button type="submit" class="btn btn-primary bg-success"
+                                            style="margin-right: 20px">Editar</button>
+                                            <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                            asp-route-idDiagnostico="@d.Id">Eliminar</button>
+                                    </td>
+                                </tr>
+                            }
+                        </form>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -18,7 +63,7 @@
         <div id="id-collapse-admin-diagnostico" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-                <form>
+                <form method="POST">
                     <div class="form-row">
                         <fieldset disabled col-md-6>
                             <div class="form-group col-md-6">
@@ -27,65 +72,22 @@
                             </div>
                         </fieldset>
                         <div class="form-group col-md-2 mx-3">
-                            <label for="">Tipo de Diagnóstico: </label> <select id="diganostico" name="diagnosticos">
+                            <label for="">Tipo de Diagnóstico: </label> 
+                            <select id="diganostico" name="TipoDiagnostico">
                                 <option value="Tratable">Tratable</option>
                                 <option value="Riesgoso de Contagio">Riesgoso de Contagio</option>
                             </select>
                         </div>
                         <div class="form-group col-md-2 mx-3">
-                            <label for="">Nombre: <input type="text"></label>
+                            <label for="">Nombre: <input name="NombreDiagnostico" type="text"></label>
                         </div>
                         <div class="form-group col-md-3 mx-3">
-                            <label for="">Descripción: <input type="text"></label>
+                            <label for="">Descripción: <input name="DescripcionDiagnostico" type="text"></label>
                         </div>
                         
                         <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
 
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#id-collapse-listar-diagnostico" aria-expanded="false"
-                    aria-controls="id-collapse-listar-diagnostico">
-                    Listar Mascotas
-                </button>
-            </h2>
-        </div>
-        <div id="id-collapse-listar-diagnostico" class="collapse" aria-labelledby="headingTwo"
-            data-parent="#accordionExample">
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">Tipo de Diagnóstico</th>
-                            <th scope="col">Nombre</th>
-                            <th scope="col">Descripción</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-
-                        @foreach (var d in Model.listaDiagnosticos)
-                        {
-                            <tr>
-                                <td>@d.Id</td>
-                                <td>@d.TipoDiagnostico</td>
-                                <td>@d.NombreDiagnostico</td>
-                                <td>@d.DescripcionDiagnostico</td>
-                                <td>
-                                        <button type="submit" class="btn btn-primary bg-success"
-                                        style="margin-right: 20px">Editar</button>
-                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                        asp-route-idDiagnostico="@d.Id">Eliminar</button>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

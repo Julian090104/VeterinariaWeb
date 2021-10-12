@@ -6,6 +6,54 @@
 <h3>Administra Información sobre Vacunas! <span class="badge badge-secondary"></span></h3>
 <div class="accordion" id="accordionExample">
     <div class="card">
+        <div class="card-header" id="headingTwo">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                    data-target="#id-collapse-listar-vacuna" aria-expanded="false"
+                    aria-controls="id-collapse-listar-vacuna">
+                    Listar Vacunas
+                </button>
+            </h2>
+        </div>
+        <div id="id-collapse-listar-vacuna" class="collapse show" aria-labelledby="headingTwo"
+            data-parent="#accordionExample">
+            <div class="card-body">
+                
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Id</th>
+                                <th scope="col">NombreVacuna</th>
+                                <th scope="col">FechaVacuna</th>
+                                <th scope="col">Contraindicación</th>
+                                <th scope="col">EnfermedadQueProtege</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <form method="POST">
+                                @foreach (var v in Model.listaVacunas)
+                                {
+                                    <tr>
+                                        <td>@v.Id</td>
+                                        <td>@v.NombreVacuna</td>
+                                        <td>@v.FechaVacuna</td>
+                                        <td>@v.Contraindicaciones</td>
+                                        <td>@v.ProteccionContra</td>
+                                        <td>
+                                                    <button type="submit" class="btn btn-primary bg-success"
+                                                    style="margin-right: 20px">Editar</button>
+                                                    <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                                    asp-route-idVacuna="@v.Id">Eliminar</button> 
+                                            </td>
+                                    </tr>
+                                }
+                            </form>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+    </div>
+    <div class="card">
         <div class="card-header" id="headingOne">
             <h2 class="mb-0">
                 <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -15,11 +63,10 @@
                 </button>
             </h2>
         </div>
-
         <div id="id-collapse-admin-vacuna" class="collapse" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-                <form>
+                <form  method="POST">
                     <div class="form-row">
                         <fieldset disabled>
                             <div class="form-group col-md-6">
@@ -29,18 +76,11 @@
                         </fieldset>
                         <div class="form-group col-md-4">
                             <label for="exampleFormControlSelect1">*Seleccion Nombre de la Vacuna</label>
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                <option>Seleccione la Vacuna:</option>
-                                <option>Vacuna 1</option>
-                                <option>Vacuna 2</option>
-                                <option>Vacuna 3</option>
-                                <option>Vacuna 4</option>
-                                <option>Vacuna 5</option>
-                            </select>
+                            <select required name="NombreVacuna" asp-items="@Model.Vacunas" class="p-1"></select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputDate">Fecha de Vacuna</label>
-                            <input type="Date" class="form-control" id="inputDate" placeholder="Fecha Vacuna">
+                            <input required type="Date" name="FechaVacuna" class="form-control" id="inputDate" placeholder="Fecha Vacuna">
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-check">
@@ -53,59 +93,13 @@
                                 </label>
                             </div>
                         </div>
-                            <div class="form-group row">
-                                <label for="exampleFormControlTextarea1">Contraindicaciones:</label>
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">Escriba las contraindicaciones</textarea>
-                            </div>
+                        <div class="form-group row">
+                            <label for="exampleFormControlTextarea1">Contraindicaciones:</label>
+                            <textarea name="Contraindicaciones" class="form-control" id="exampleFormControlTextarea1" rows="5">Escriba las contraindicaciones</textarea>
+                        </div>
                     </div>
-                     <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button>                   
+                    <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button>                   
                 </form>
-            </div>
-        </div>
-    </div>
-    <div class="card">
-        <div class="card-header" id="headingTwo">
-            <h2 class="mb-0">
-                <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
-                    data-target="#id-collapse-listar-vacuna" aria-expanded="false"
-                    aria-controls="id-collapse-listar-vacuna">
-                    Listar Vacunas
-                </button>
-            </h2>
-        </div>
-        <div id="id-collapse-listar-vacuna" class="collapse" aria-labelledby="headingTwo"
-            data-parent="#accordionExample">
-            <div class="card-body">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">NombreVacuna</th>
-                            <th scope="col">FechaVacuna</th>
-                            <th scope="col">Contraindicación</th>
-                            <th scope="col">EnfermedadQueProtege</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                       @foreach (var v in Model.listaVacunas)
-                       {
-                           <tr>
-                               <td>@v.Id</td>
-                               <td>@v.NombreVacuna</td>
-                               <td>@v.FechaVacuna</td>
-                               <td>@v.Contraindicaciones</td>
-                               <td>@v.ProteccionContra</td>
-                               <td>
-                                        <button type="submit" class="btn btn-primary bg-success"
-                                        style="margin-right: 20px">Editar</button>
-                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                        asp-route-idVacuna="@v.Id">Eliminar</button>
-                                </td>
-                           </tr>
-                       }
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>

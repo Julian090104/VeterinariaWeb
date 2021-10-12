@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -11,7 +12,14 @@ namespace Veterinaria.App.Presentacion.Pages
 {
     public class PageVacunaModel : PageModel
     {
+        public List<SelectListItem> Vacunas { get; } = new List<SelectListItem>
+        {
+            new SelectListItem { Value = "Distempoer", Text = "Distempoer" },
+            new SelectListItem { Value = "Parvovirus", Text = "Parvovirus" },
+            new SelectListItem { Value = "Hepatitis Infecciosa Canina", Text = "Hepatitis Infecciosa Canina"  },
+        };
 
+        public Vacuna vacuna;
         private static IRepositorioVacuna repoVacuna = new RepositorioVacuna(new Persistencia.AppContext());
         public IEnumerable<Vacuna> listaVacunas;
 

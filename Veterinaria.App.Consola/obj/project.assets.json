@@ -5802,11 +5802,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Consola\\Veterinaria.App.Consola.csproj",
+      "projectUniqueName": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Consola\\Veterinaria.App.Consola.csproj",
       "projectName": "Veterinaria.App.Consola",
-      "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Consola\\Veterinaria.App.Consola.csproj",
+      "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Consola\\Veterinaria.App.Consola.csproj",
       "packagesPath": "C:\\Users\\julia\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Consola\\obj\\",
+      "outputPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Consola\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\julia\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5820,11 +5820,11 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj": {
-              "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj"
+            "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj": {
+              "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Dominio\\Veterinaria.App.Dominio.csproj"
             },
-            "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj": {
-              "projectPath": "C:\\Users\\julia\\Downloads\\ProyectoVeterinariaWeb\\Veterinaria.App\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj"
+            "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj": {
+              "projectPath": "C:\\Users\\julia\\OneDrive\\Documentos\\GitHub\\ProyectoVeterinaria\\VeterinariaWeb\\Veterinaria.App.Persistencia\\Veterinaria.App.Persistencia.csproj"
             }
           }
         }

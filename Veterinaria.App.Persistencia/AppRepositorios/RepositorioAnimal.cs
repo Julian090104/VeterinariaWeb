@@ -31,7 +31,7 @@ namespace Veterinaria.App.Persistencia
                 animalFind.IdDueno =  animalNew.IdDueno;
                 animalFind.IdVeterinario =  animalNew.IdVeterinario;
                 animalFind.IdVacuna =  animalNew.IdVacuna;
-                               
+            
                 this.appContext.SaveChanges();
 
             }

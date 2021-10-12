@@ -37,22 +37,21 @@
                         <form method="POST">
                             @foreach (var du in Model.listaDueno)
                             {
-                            <tr>
-                                @* <th scope="row">1</th> *@
-                                <td>@du.Id</td>
-                                <td>@du.Nombre</td>
-                                <td>@du.Telefono</td>
-                                <td>@du.Edad</td>
-                                <td>@du.Direccion</td>
-                                <td>@du.FechaNacimiento</td>
-                                <td>@du.Correo</td>
-                                <td>
-                                        <button type="submit" class="btn btn-primary bg-success"
-                                        style="margin-right: 20px">Editar</button>
-                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                        asp-route-idDueno="@du.Id">Eliminar</button>
-                                </td>
-                            </tr>
+                                <tr>
+                                    <td>@du.Id</td>
+                                    <td>@du.Nombre</td>
+                                    <td>@du.Telefono</td>
+                                    <td>@du.Edad</td>
+                                    <td>@du.Direccion</td>
+                                    <td>@du.FechaNacimiento</td>
+                                    <td>@du.Correo</td>
+                                    <td>
+                                            <button type="submit" class="btn btn-primary bg-success"
+                                            style="margin-right: 20px">Editar</button>
+                                            <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                            asp-route-idDueno="@du.Id">Eliminar</button>
+                                    </td>
+                                </tr>
                             }
                         </form>
                     </tbody>
