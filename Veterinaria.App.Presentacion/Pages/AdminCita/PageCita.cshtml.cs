@@ -18,6 +18,18 @@ namespace Veterinaria.App.Presentacion.Pages
         {
             this.listaCitas = repoCita.ObtenerTodaslasCita();
         }
+        public void OnPostAdd(Cita cita){
+            repoCita.AgregarCita(cita);
+            this.listaCitas = repoCita.ObtenerTodaslasCita();
+        }
+        public void OnPostDel(int idCita){
+            repoCita.EliminarCita(idCita);
+            this.listaCitas = repoCita.ObtenerTodaslasCita();
+        }
+        public void OnPostEdit(Cita cita){
+            repoCita.EditarCita(cita);
+            this.listaCitas = repoCita.ObtenerTodaslasCita();
+        }  
     }
 
     

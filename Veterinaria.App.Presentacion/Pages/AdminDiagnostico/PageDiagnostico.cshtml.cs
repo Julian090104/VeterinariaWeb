@@ -17,5 +17,18 @@ namespace Veterinaria.App.Presentacion.Pages
         {
             this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
         }
+
+        public void OnPostAdd(Diagnostico diagnostico){
+            repoDiagnostico.AgregarDiagnostico(diagnostico);
+            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+        }
+        public void OnPostDel(int idDiagnostico){
+            repoDiagnostico.EliminarDiagnostico(idDiagnostico);
+            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+        }
+        public void OnPostEdit(Diagnostico diagnostico){
+            repoDiagnostico.EditarDiagnostico(diagnostico);
+            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+        }  
     }
 }

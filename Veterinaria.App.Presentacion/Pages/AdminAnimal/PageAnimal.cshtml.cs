@@ -17,24 +17,22 @@ namespace Veterinaria.App.Presentacion.Pages
         public IEnumerable<Animal> listaMascotas;
         public void OnGet()
         {
-            /* this.listaMascotas.Add(
-                new Animal{
-                    Nombre = "Firulais", Edad = 12, IdPlanVacunacion = 1, IdDueno = 2, IdVeterinario = 6, IdVacuna = 3
-                }
-            ); */
             this.listaMascotas = repoAnimal.ObtenerTodoslosAnimales();
         }
 
+    public void OnPostAdd(Animal animal){
+            repoAnimal.AgregarAnimal(animal);
+            this.listaMascotas = repoAnimal.ObtenerTodoslosAnimales();
+        }
+        public void OnPostDel(int idAnimal){
+            repoAnimal.EliminarAnimal(idAnimal);
+            this.listaMascotas = repoAnimal.ObtenerTodoslosAnimales();
+        }
+        public void OnPostEdit(Animal animal){
+            repoAnimal.EditarAnimal(animal);
+            this.listaMascotas = repoAnimal.ObtenerTodoslosAnimales();
+        }  
         
     }
-    /* public class Animal{
-
-        public string Nombre {get; set;}
-        public int Edad {get; set;}
-        public int IdPlanVacunacion {get; set;}
-        public int IdDueno {get; set;}
-        public int IdVeterinario {get; set;}
-        public int IdVacuna {get; set;} 
-
-    } */
+   
 }

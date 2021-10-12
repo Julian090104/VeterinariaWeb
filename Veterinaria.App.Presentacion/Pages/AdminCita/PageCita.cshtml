@@ -44,9 +44,7 @@
                             <label for="exampleFormControlSelect1">Id Veterinario: <input type="number"></label>
                         </div>
 
-                        <button type="button" class="btn btn-secondary mx-1">Agregar</button>
-                        <button type="submit" class="btn btn-success mx-1">Editar</button>
-                        <button type="submit" class="btn btn-danger mx-1">Eliminar</button>
+                         <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
 
                 </form>
             </div>
@@ -87,7 +85,12 @@
                                 <td>@c.MotivoConsulta</td>
                                 <td>@c.IdDueno</td>
                                 <td>@c.IdVeterinario</td>
-
+                                <td>
+                                        <button type="submit" class="btn btn-primary bg-success"
+                                        style="margin-right: 20px">Editar</button>
+                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                        asp-route-idCita="@c.Id">Eliminar</button>
+                                </td>
                             </tr>
                         }
                     </tbody>

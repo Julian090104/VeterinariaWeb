@@ -35,18 +35,17 @@
                     </thead>
                     <tbody>
                         <form method="POST">
-                           @*  @foreach (var du in Model.listaDueno)
+                            @foreach (var du in Model.listaDueno)
                             {
-                            <tr> *@
+                            <tr>
                                 @* <th scope="row">1</th> *@
-                                @* <td>@du.Id</td>
+                                <td>@du.Id</td>
                                 <td>@du.Nombre</td>
                                 <td>@du.Telefono</td>
                                 <td>@du.Edad</td>
                                 <td>@du.Direccion</td>
                                 <td>@du.FechaNacimiento</td>
                                 <td>@du.Correo</td>
-                                <td>@du.Contrasena</td>
                                 <td>
                                         <button type="submit" class="btn btn-primary bg-success"
                                         style="margin-right: 20px">Editar</button>
@@ -54,7 +53,7 @@
                                         asp-route-idDueno="@du.Id">Eliminar</button>
                                 </td>
                             </tr>
-                            } *@
+                            }
                         </form>
                     </tbody>
                 </table>
@@ -133,16 +132,5 @@
         //Asíncrono
         xhttp.open("GET", "https://localhost:4004/WeatherForecast", true)
         xhttp.send();
-
-        @* $.ajax(
-                {
-                type: "GET", // la variable type guarda el tipo de la peticion GET,POST,..
-                url: "https://localhost:5004/Login", //url guarda la ruta hacia donde se hace la peticion
-                success: function (datos) { //success es una funcion que se utiliza si el servidor retorna informacion
-                alert(datos);
-                },
-                dataType: 'text' // El tipo de datos esperados del servidor. Valor predeterminado: Intelligent Guess (xml, json, script, text, html).
-                }
-                ); *@
     }
 </script>

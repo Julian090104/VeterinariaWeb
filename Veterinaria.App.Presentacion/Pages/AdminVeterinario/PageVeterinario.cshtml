@@ -2,7 +2,7 @@
 @model Veterinaria.App.Presentacion.Pages.PageVeterinarioModel
 @{
 }
-<h3>Administra Información sobre Dueños de Mascota! <span class="badge badge-secondary"></span></h3>
+<h3>Administra Información sobre Veterinarios! <span class="badge badge-secondary"></span></h3>
 @* <button type="submit" class="btn btn-secondary bg-danger" onclick-"actualizarLista()">Actualizar lista</button> *@
 
 <div class="accordion" id="accordionExample">
@@ -12,7 +12,7 @@
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                     data-target="#id-collapse-listar-veterinario" aria-expanded="false"
                     aria-controls="id-collapse-listar-veterinario">
-                    Listar Dueños
+                    Listar Veterinarios
                 </button>
             </h2>
         </div>
@@ -35,10 +35,9 @@
                     </thead>
                     <tbody>
                         <form method="POST">
-                            @* @foreach (var ad in Model.listaVeterinario)
+                            @foreach (var ad in Model.listaVeterinario)
                             {
                             <tr>
-                                <th scope="row">1</th>
                                 <td>@ad.Id</td>
                                 <td>@ad.Nombre</td>
                                 <td>@ad.Telefono</td>
@@ -46,7 +45,6 @@
                                 <td>@ad.Direccion</td>
                                 <td>@ad.FechaNacimiento</td>
                                 <td>@ad.Correo</td>
-                                <td>@ad.Contrasena</td>
                                 <td>
                                         <button type="submit" class="btn btn-primary bg-success"
                                         style="margin-right: 20px">Editar</button>
@@ -54,7 +52,7 @@
                                         asp-route-idVeterinario="@ad.Id">Eliminar</button>
                                 </td>
                             </tr>
-                            } *@
+                            }
                         </form>
                     </tbody>
                 </table>

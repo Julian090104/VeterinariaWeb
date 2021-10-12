@@ -3,7 +3,7 @@
 @{
 }
 
-<h3>Administra Información sobre Dueños de Mascota! <span class="badge badge-secondary"></span></h3>
+<h3>Administra Información sobre Administradores! <span class="badge badge-secondary"></span></h3>
 @* <button type="submit" class="btn btn-secondary bg-danger" onclick-"actualizarLista()">Actualizar lista</button> *@
 
 <div class="accordion" id="accordionExample">
@@ -13,7 +13,7 @@
                 <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
                     data-target="#id-collapse-listar-administrador" aria-expanded="false"
                     aria-controls="id-collapse-listar-administrador">
-                    Listar Dueños
+                    Listar Administradores
                 </button>
             </h2>
         </div>
@@ -31,15 +31,13 @@
                             <th scope="col">Dirección</th>
                             <th scope="col">FechaNacimiento</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Contraseña</th>
                         </tr>
                     </thead>
                     <tbody>
                         <form method="POST">
-                            @* @foreach (var ad in Model.listaAdministrador)
+                            @foreach (var ad in Model.listaAdministrador)
                             {
                             <tr>
-                                <th scope="row">1</th>
                                 <td>@ad.Id</td>
                                 <td>@ad.Nombre</td>
                                 <td>@ad.Telefono</td>
@@ -55,7 +53,7 @@
                                         asp-route-idAdministrador="@ad.Id">Eliminar</button>
                                 </td>
                             </tr>
-                            } *@
+                            }
                         </form>
                     </tbody>
                 </table>

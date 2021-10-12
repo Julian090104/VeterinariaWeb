@@ -45,9 +45,7 @@
                             <label for="exampleFormControlSelect1">Id Vacuna: <input type="number" width="5"></label>
                         </div>
                        
-                    <button type="button" class="btn btn-secondary mx-1">Agregar</button>
-                    <button type="submit" class="btn btn-success mx-1">Editar</button>
-                    <button type="submit" class="btn btn-danger mx-1">Eliminar</button>
+                     <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
                     
                 </form>
             </div>
@@ -82,15 +80,19 @@
                        @foreach (var m in Model.listaMascotas)
                        {
                            <tr>
-
-                               <th scope="row">1</th>
+                               <td>@m.Id</td>
                                <td>@m.Nombre</td>
                                <td>@m.Edad</td>
                                <td>@m.IdPlanVacunacion</td>
                                <td>@m.IdDueno</td>
                                <td>@m.IdVeterinario</td>
                                <td>@m.IdVacuna</td>
-
+                               <td>
+                                        <button type="submit" class="btn btn-primary bg-success"
+                                        style="margin-right: 20px">Editar</button>
+                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                        asp-route-idAnimal="@m.Id">Eliminar</button>
+                                </td>
                            </tr>
                        }
                     </tbody>

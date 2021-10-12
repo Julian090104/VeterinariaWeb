@@ -38,13 +38,8 @@
                         <div class="form-group col-md-3 mx-3">
                             <label for="">Descripción: <input type="text"></label>
                         </div>
-
-
-                        <div class="form-group col-md-12">
-                            <button type="button" class="btn btn-secondary mx-1">Agregar</button>
-                            <button type="submit" class="btn btn-success mx-1">Editar</button>
-                            <button type="submit" class="btn btn-danger mx-1">Eliminar</button>
-                        </div>
+                        
+                        <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
 
                 </form>
             </div>
@@ -77,12 +72,16 @@
                         @foreach (var d in Model.listaDiagnosticos)
                         {
                             <tr>
-
-                                <th scope="row">1</th>
+                                <td>@d.Id</td>
                                 <td>@d.TipoDiagnostico</td>
                                 <td>@d.NombreDiagnostico</td>
                                 <td>@d.DescripcionDiagnostico</td>
-
+                                <td>
+                                        <button type="submit" class="btn btn-primary bg-success"
+                                        style="margin-right: 20px">Editar</button>
+                                        <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
+                                        asp-route-idDiagnostico="@d.Id">Eliminar</button>
+                                </td>
                             </tr>
                         }
                     </tbody>
