@@ -15,21 +15,36 @@ namespace Veterinaria.App.Presentacion.Pages
 
         private static IRepositorioAdministrador repoAdministrador = new RepositorioAdministrador(new Veterinaria.App.Persistencia.AppContext());
         public IEnumerable <Administrador> listaAdministrador;
-
-        public void OnGet()
+        public String modePage = "adicion";
+        public Administrador adminNow;
+        public void OnGet(int idAdministrador)
         {
-            this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();
+            if (idAdministrador > 0)
+            {
+                this.modePage = "edicion";
+                this.adminNow = repoAdministrador.ObtenerAdministrador(idAdministrador);
+                Console.WriteLine("Modo edicion");
+            }else{
+                this.modePage = "adicion";
+            }
+
+            actualizarLista();
+            
         }
         public void OnPostAdd(Administrador administrador){
             repoAdministrador.AgregarAdministrador(administrador);
-            this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();
+            actualizarLista();
         }
         public void OnPostDel(int idAdministrador){
             repoAdministrador.EliminarAdministrador(idAdministrador);
-            this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();
+            actualizarLista();
         }
         public void OnPostEdit(Administrador administrador){
             repoAdministrador.EditarAdministrador(administrador);
+            actualizarLista();
+        }
+
+        public void actualizarLista(){
             this.listaAdministrador = repoAdministrador.ObtenerTodoslosAdministrador();
         }    
     }
