@@ -26,6 +26,7 @@ namespace Veterinaria.App.Persistencia
             if(administradorFind != null){
                 administradorFind.Nombre = administradorNew.Nombre;
                 administradorFind.Telefono = administradorNew.Telefono;
+                administradorFind.FechaNacimiento = administradorNew.FechaNacimiento;
                 administradorFind.Edad = administradorNew.Edad;
                 administradorFind.Direccion = administradorNew.Direccion;
                 administradorFind.Correo = administradorNew.Correo;    

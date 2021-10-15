@@ -23,7 +23,6 @@ namespace Veterinaria.App.Presentacion.Pages
             {
                 this.modePage = "edicion";
                 this.adminNow = repoAdministrador.ObtenerAdministrador(idAdministrador);
-                Console.WriteLine("Modo edicion");
             }else{
                 this.modePage = "adicion";
             }

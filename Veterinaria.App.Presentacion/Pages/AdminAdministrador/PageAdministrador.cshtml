@@ -47,7 +47,7 @@
                                 <td>
                                     <div class="container">
                                         <div class="row" style="width: 230px;">
-                                            <div class="col-sm" >
+                                            <div class="col-sm">
                                                 <a class="btn btn-primary bg-success"
                                                 asp-page="/AdminAdministrador/PageAdministrador"
                                                 asp-route-idAdministrador="@ad.Id" style="margin-right: 20px">Editar</a>
@@ -59,37 +59,37 @@
                                                 </button>
 
                                                 <!-- Modal -->
-                                            <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="exampleModalLabel">Eliminar
-                                                                    Administrador
-                                                                </h5>
-                                                                <button type="button" class="close" data-dismiss="modal"
-                                                                aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                ¿Deseas eliminar el administrador?
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-secondary"
-                                                                data-dismiss="modal">Close</button>
-                                                                <form method="POST">
-                                                                    <button type="submit" class="btn btn-primary bg-danger"
-                                                                    asp-page-handler="Del"
-                                                                    asp-route-IdAdministrador="@ad.Id">Eliminar</button>
-                                                                </form>
+                                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar
+                                                                        Administrador
+                                                                    </h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    ¿Deseas eliminar el administrador?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <form method="POST">
+                                                                        <button type="submit" class="btn btn-primary bg-danger"
+                                                                        asp-page-handler="Del"
+                                                                        asp-route-IdAdministrador="@ad.Id">Eliminar</button>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
                                                 </div>
-                                                <div>
-                                                </div>
-                                            </div>
+                                            <div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         }
