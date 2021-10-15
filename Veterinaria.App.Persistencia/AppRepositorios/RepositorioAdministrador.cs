@@ -22,14 +22,13 @@ namespace Veterinaria.App.Persistencia
         Administrador IRepositorioAdministrador.EditarAdministrador(Administrador administradorNew){
 
             var administradorFind = this.appContext.Administradores.FirstOrDefault(a => a.Id == administradorNew.Id);
-
+            
             if(administradorFind != null){
                 administradorFind.Nombre = administradorNew.Nombre;
                 administradorFind.Telefono = administradorNew.Telefono;
                 administradorFind.Edad = administradorNew.Edad;
                 administradorFind.Direccion = administradorNew.Direccion;
-                administradorFind.Correo = administradorNew.Correo;
-                administradorFind.Contrasena = administradorNew.Contrasena;       
+                administradorFind.Correo = administradorNew.Correo;    
                 this.appContext.SaveChanges();
             }
             return null;
