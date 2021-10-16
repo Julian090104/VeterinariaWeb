@@ -16,8 +16,8 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-listar-dueno" class="collapse show" aria-labelledby="headingTwo"
-            data-parent="#accordionExample">
+        <div id="id-collapse-listar-dueno" class="@(Model.modePage == "adicion" ? "collapse show" : "collapse")"
+            aria-labelledby="headingTwo" data-parent="#accordionExample">
             <div class="card-body">
                 <table class="table table-hover">
                     <thead>
@@ -30,14 +30,14 @@
                             <th scope="col">Dirección</th>
                             <th scope="col">FechaNacimiento</th>
                             <th scope="col">Correo</th>
-                            <th scope="col">Contraseña</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <form method="POST">
-                            @foreach (var du in Model.listaDueno)
-                            {
+                        
+                        @foreach (var du in Model.listaDueno)
+                        {
                                 <tr>
+                                @* <th scope="row">1</th> *@
                                     <td>@du.Id</td>
                                     <td>@du.Nombre</td>
                                     <td>@du.Telefono</td>
@@ -46,14 +46,52 @@
                                     <td>@du.FechaNacimiento</td>
                                     <td>@du.Correo</td>
                                     <td>
-                                            <button type="submit" class="btn btn-primary bg-success"
-                                            style="margin-right: 20px">Editar</button>
-                                            <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                            asp-route-idDueno="@du.Id">Eliminar</button>
+                                        <div class="container">
+                                        <div class="row" style="width: 230px;">
+                                            <div class="col-sm" style="max-width: fit-content;">
+                                                <a class="btn btn-primary bg-success"
+                                                asp-page="/AdminDueno/AdDueno"
+                                                asp-route-idDueno="@du.Id" style="margin-right: 20px">Editar</a>
+                                            </div>
+                                            <div class="col-sm">
+                                                <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#exampleModal">
+                                                    Eliminar
+                                                </button>
+                                                <!-- Modal -->
+                                                 <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar
+                                                                        Dueño
+                                                                    </h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    ¿Deseas eliminar el Dueño?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <form method="POST">
+                                                                        <button type="submit" class="btn btn-primary bg-danger"
+                                                                        asp-page-handler="Del"
+                                                                        asp-route-idDueno="@du.Id">Eliminar</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </td>
                                 </tr>
-                            }
-                        </form>
+                        }
                     </tbody>
                 </table>
             </div>
@@ -69,67 +107,74 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-admin-dueno" class="collapse" aria-labelledby="headingOne"
+        <div id="id-collapse-admin-dueno" class="@(Model.modePage == "edicion" ? "collapse show" : "collapse")" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
                 <form method="POST">
                     <div class="form-row">
                         <fieldset disabled>
                             <div class="form-group col-md-8">
-                                <label for="id-dueno">IdDueno</label>
+                                <label for="id-dueno">IdDueño</label>
                                 <input type="text" id="id-dueno" class="form-control" placeholder="IdDueno" name="Id">
                             </div>
                         </fieldset>
+
+                        <input type="text" asp-for="@Model.duenoNow.Id" id="id-dueno" class="form-control" type="hidden" placeholder="IdDueno" name="Id">
+
                         <div class="form-group col-md-6">
                             <label for="id-nombred">Nombre del Dueño</label>
-                            <input type="text" id="id-nombred" class="form-control" placeholder="Digita Nombre del Dueño" name="Nombre">
+                            <input required asp-for="@Model.duenoNow.Nombre" type="text" id="id-nombred"
+                                class="form-control" placeholder="Digita Nombre del Dueño" name="Nombre">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="id-fechanac">Fecha de Nacimiento</label>
-                            <input type="Date" class="form-control" id="id-fechanac" placeholder="Selecciona Fecha Nacimiento" name="FechaNacimiento">
+                            <input required asp-for="@Model.duenoNow.FechaNacimiento" type="Date" class="form-control"
+                                id="id-fechanac" placeholder="Selecciona Fecha Nacimiento" name="FechaNacimiento">
                         </div>
                         <div class="form-group col-md-2">
                             <label for="id-edad">Edad</label>
-                            <input type="text" id="id-edad" class="form-control" placeholder="Digita la Edad" name="Edad">
+                            <input required asp-for="@Model.duenoNow.Edad" type="text" id="id-edad" class="form-control"
+                                placeholder="Digita la Edad" name="Edad">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="id-direccion">Dirección</label>
-                            <input id="id-direccion" type="text" class="form-control" placeholder="Digita la dirección" name="Direccion">
+                            <input required asp-for="@Model.duenoNow.Direccion" id="id-direccion" type="text"
+                                class="form-control" placeholder="Digita la dirección" name="Direccion">
                         </div>
                         <div class="form-group col-md-3">
                             <label for="id-telefono">Teléfono</label>
-                            <input type="text" id="id-telefono" class="form-control" placeholder="Digita Número de Teléfono" name="Telefono">
+                            <input required asp-for="@Model.duenoNow.Telefono" type="text" id="id-telefono"
+                                class="form-control" placeholder="Digita Número de Teléfono" name="Telefono">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="id-correo">Correo Electrónico</label>
-                            <input id="id-correo" type="email" class="form-control" placeholder="Digita el correo" name="Correo">
+                            <input required asp-for="@Model.duenoNow.Correo" id="id-correo" type="email"
+                                class="form-control" placeholder="Digita el correo" name="Correo">
                         </div>
                         <div class="form-group col-md-6">
                             <label for="id-contra">Contraseña</label>
-                            <input id="id-contra" type="password" class="form-control" placeholder="Digita la contraseña" name="Contrasena">
+                            <input asp-for="@Model.duenoNow.Contrasena" id="id-contra" type="password" class="form-control"
+                                placeholder="Digita la contraseña" name="Contrasena">
                         </div>                            
                     </div>
-                    <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
+                    <div class="container m-4">
+                        <div class="row">
+                            <button class="btn btn-primary mr-2" asp-page-handler="Add">
+                                Agregar
+                            </button>
+
+                            @if (Model.modePage == "edicion")
+                            {
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px"
+                                asp-page-handler="Edit">
+                                    Editar
+                                </button>
+                            }
+                        </div>
+                    </div> 
                 </form>
             </div>
         </div>
     </div>
 
 </div>
-
-<script>
-    function actualizarLista(){
-        var xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status == 200){
-                alert(xhttp.responseText);
-            }
-            else {
-                alert("Algo falló");
-            }
-        }
-        //Asíncrono
-        xhttp.open("GET", "https://localhost:4004/WeatherForecast", true)
-        xhttp.send();
-    }
-</script>

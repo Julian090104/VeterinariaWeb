@@ -17,6 +17,7 @@ namespace Veterinaria.App.Presentacion.Pages
         public IEnumerable <Administrador> listaAdministrador;
         public String modePage = "adicion";
         public Administrador adminNow;
+
         public void OnGet(int idAdministrador)
         {
             if (idAdministrador > 0)

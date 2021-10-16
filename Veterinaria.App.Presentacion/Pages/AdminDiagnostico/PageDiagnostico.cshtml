@@ -14,7 +14,7 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-listar-diagnostico" class="collapse show" aria-labelledby="headingTwo"
+        <div id="id-collapse-listar-diagnostico"  class="@(Model.modePage == "adicion" ? "collapse show" : "collapse")" aria-labelledby="headingTwo"
             data-parent="#accordionExample">
             <div class="card-body">
                 <table class="table table-hover">
@@ -36,10 +36,53 @@
                                     <td>@d.NombreDiagnostico</td>
                                     <td>@d.DescripcionDiagnostico</td>
                                     <td>
-                                            <button type="submit" class="btn btn-primary bg-success"
-                                            style="margin-right: 20px">Editar</button>
-                                            <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                            asp-route-idDiagnostico="@d.Id">Eliminar</button>
+                                        <div class="container">
+                                            <div class="row" style="width: 230px;">
+                                                <div class="col-sm">
+                                                    <a class="btn btn-primary bg-success"
+                                                    asp-page="/AdminDiagnostico/PageDiagnostico"
+                                                    asp-route-idDiagnostico="@d.Id"
+                                                    style="margin-right: 20px">Editar</a>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal">
+                                                        Eliminar
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar
+                                                                        Diagnostico
+                                                                    </h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    ¿Deseas eliminar el diagnostico?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <form method="POST">
+                                                                        <button type="submit"
+                                                                        class="btn btn-primary bg-danger"
+                                                                        asp-page-handler="Del"
+                                                                        asp-route-idDiagnostico="@d.Id">Eliminar</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div>
+                                                    </div>
+                                                </div>
                                     </td>
                                 </tr>
                             }
@@ -60,7 +103,7 @@
             </h2>
         </div>
 
-        <div id="id-collapse-admin-diagnostico" class="collapse" aria-labelledby="headingOne"
+        <div id="id-collapse-admin-diagnostico"  class="@(Model.modePage == "edicion" ? "collapse show" : "collapse")" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
                 <form method="POST">
@@ -68,24 +111,47 @@
                         <fieldset disabled col-md-6>
                             <div class="form-group col-md-6">
                                 <label for="disabledTextInput">IdDiagnostico</label>
-                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
+                                <input type="text" id="disabledTextInput" class="form-control" placeholder="IdDiagnostico">
                             </div>
                         </fieldset>
-                        <div class="form-group col-md-2 mx-3">
-                            <label for="">Tipo de Diagnóstico: </label> 
-                            <select id="diganostico" name="TipoDiagnostico">
+
+                        <input type="text" asp-for="@Model.diagnosticoNow.Id"  type="hidden" id="id-diagnostico"
+                            class="form-control" placeholder="IdDiagnostico" name="Id">
+
+                        <div class="form-group col-md-4 mx-3">
+                            <label for="">Tipo de Diagnóstico: </label>
+                            <select class="form-control" asp-for="@Model.diagnosticoNow.TipoDiagnostico" id="diganostico"
+                                name="TipoDiagnostico">
                                 <option value="Tratable">Tratable</option>
                                 <option value="Riesgoso de Contagio">Riesgoso de Contagio</option>
                             </select>
                         </div>
-                        <div class="form-group col-md-2 mx-3">
-                            <label for="">Nombre: <input name="NombreDiagnostico" type="text"></label>
+                        <div class="form-group col-md-4 mx-3">
+                            <label for="">Nombre: </label>
+                            <input class="form-control" asp-for="@Model.diagnosticoNow.NombreDiagnostico"
+                                    name="NombreDiagnostico" type="text">
                         </div>
-                        <div class="form-group col-md-3 mx-3">
-                            <label for="">Descripción: <input name="DescripcionDiagnostico" type="text"></label>
+                        <div class="form-group row mx-5">
+                            <label for="exampleFormControlTextarea1">Descripción:</label>
+                            <textarea asp-for="@Model.diagnosticoNow.DescripcionDiagnostico" name="DescripcionDiagnostico" class="form-control" id="exampleFormControlTextarea1"
+                                placeholder="Escriba la descripcion del diagnostico" rows="5"></textarea>
                         </div>
-                        
-                        <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button> 
+
+                        <div class="container m-4">
+                            <div class="row">
+                                <button class="btn btn-primary mr-2" asp-page-handler="Add">
+                                    Agregar
+                                </button>
+
+                                @if (Model.modePage == "edicion")
+                                {
+                                    <button type="submit" class="btn btn-primary" style="margin-right: 20px"
+                                    asp-page-handler="Edit">
+                                        Editar
+                                    </button>
+                                }
+                            </div>
+                        </div> 
 
                 </form>
             </div>

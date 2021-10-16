@@ -13,22 +13,36 @@ namespace Veterinaria.App.Presentacion.Pages
     {
         private static IRepositorioDiagnostico repoDiagnostico = new RepositorioDiagnostico(new Persistencia.AppContext());
         public IEnumerable<Diagnostico> listaDiagnosticos;
-        public void OnGet()
+        public Diagnostico diagnosticoNow;
+        public String modePage = "adicion";
+        public void OnGet(int idDiagnostico)
         {
-            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+             if (idDiagnostico > 0)
+            {
+                this.modePage = "edicion";
+                this.diagnosticoNow = repoDiagnostico.ObtenerDiagnostico(idDiagnostico);
+            }else{
+                this.modePage = "adicion";
+            }
+
+            actualizarLista();
         }
 
         public void OnPostAdd(Diagnostico diagnostico){
             repoDiagnostico.AgregarDiagnostico(diagnostico);
-            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+            actualizarLista();
         }
         public void OnPostDel(int idDiagnostico){
             repoDiagnostico.EliminarDiagnostico(idDiagnostico);
-            this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
+            actualizarLista();
         }
         public void OnPostEdit(Diagnostico diagnostico){
             repoDiagnostico.EditarDiagnostico(diagnostico);
+            actualizarLista();
+        } 
+
+        public void actualizarLista(){
             this.listaDiagnosticos = repoDiagnostico.ObtenerTodoslosDiagnosticos();
-        }  
+        } 
     }
 }

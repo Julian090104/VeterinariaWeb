@@ -11,25 +11,38 @@ namespace Veterianaria.App.Presentacion.Pages
 {
     public class AdDuenoModel : PageModel
     {
-        private static IRepositorioDueno repoDueno = new RepositorioDueno(new Veterinaria.App.Persistencia.AppContext());
+         private static IRepositorioDueno repoDueno = new RepositorioDueno(new Veterinaria.App.Persistencia.AppContext());
         public IEnumerable <Dueno> listaDueno;
+        public String modePage = "adicion";
+        public Dueno duenoNow;
 
-        public void OnGet()
+        public void OnGet(int idDueno)
         {
-            this.listaDueno = repoDueno.ObtenerTodoslosDueno();
+            if (idDueno > 0)
+            {
+                this.modePage = "edicion";
+                this.duenoNow = repoDueno.ObtenerDueno(idDueno);
+            }else{
+                this.modePage = "adicion";
+            }
+
+            actualizarLista();
         }
         public void OnPostAdd(Dueno dueno){
             repoDueno.AgregarDueno(dueno);
-            this.listaDueno = repoDueno.ObtenerTodoslosDueno();
+            actualizarLista();
         }
         public void OnPostDel(int idDueno){
             repoDueno.EliminarDueno(idDueno);
-            this.listaDueno = repoDueno.ObtenerTodoslosDueno();
+            actualizarLista();
         }
         public void OnPostEdit(Dueno dueno){
             repoDueno.EditarDueno(dueno);
-            this.listaDueno = repoDueno.ObtenerTodoslosDueno();
+            actualizarLista();
         }
+        public void actualizarLista(){
+            this.listaDueno = repoDueno.ObtenerTodoslosDueno();
+        } 
     }
     
 }

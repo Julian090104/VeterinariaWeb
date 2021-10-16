@@ -18,25 +18,38 @@ namespace Veterinaria.App.Presentacion.Pages
             new SelectListItem { Value = "Parvovirus", Text = "Parvovirus" },
             new SelectListItem { Value = "Hepatitis Infecciosa Canina", Text = "Hepatitis Infecciosa Canina"  },
         };
-
         public Vacuna vacuna;
-        private static IRepositorioVacuna repoVacuna = new RepositorioVacuna(new Persistencia.AppContext());
-        public IEnumerable<Vacuna> listaVacunas;
 
-        public void OnGet()
+        private static IRepositorioVacuna repoVacuna = new RepositorioVacuna(new Veterinaria.App.Persistencia.AppContext());
+        //public List <Vacuna> listaVacunas = new List <Vacuna>();
+        public IEnumerable <Vacuna> listaVacunas;
+        public String modePage = "adicion";
+        public Vacuna vacunaNow;
+        public void OnGet(int idVacuna)
         {
-            this.listaVacunas = repoVacuna.ObtenerTodaslasVacunas();
+            if (idVacuna > 0)
+            {
+                this.modePage = "edicion";
+                this.vacunaNow = repoVacuna.ObtenerVacuna(idVacuna);
+            }else{
+                this.modePage = "adicion";
+            }
+
+            actualizarLista();
         }
         public void OnPostAdd(Vacuna vacuna){
             repoVacuna.AgregarVacuna(vacuna);
-            this.listaVacunas = repoVacuna.ObtenerTodaslasVacunas();
+            actualizarLista();
         }
         public void OnPostDel(int idVacuna){
             repoVacuna.EliminarVacuna(idVacuna);
-            this.listaVacunas = repoVacuna.ObtenerTodaslasVacunas();
+            actualizarLista();
         }
         public void OnPostEdit(Vacuna vacuna){
             repoVacuna.EditarVacuna(vacuna);
+            actualizarLista();
+        }
+        public void actualizarLista(){
             this.listaVacunas = repoVacuna.ObtenerTodaslasVacunas();
         }  
     }

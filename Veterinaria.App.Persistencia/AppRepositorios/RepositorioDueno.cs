@@ -28,8 +28,8 @@ namespace Veterinaria.App.Persistencia
                 duenoFind.Telefono = duenoNew.Telefono;
                 duenoFind.Edad = duenoNew.Edad;
                 duenoFind.Direccion = duenoNew.Direccion;
-                duenoFind.Correo = duenoNew.Correo;
-                duenoFind.Contrasena = duenoNew.Contrasena;       
+                duenoFind.FechaNacimiento = duenoNew.FechaNacimiento;
+                duenoFind.Correo = duenoNew.Correo;   
                 this.appContext.SaveChanges();
             }
             return null;

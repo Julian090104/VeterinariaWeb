@@ -12,29 +12,40 @@ namespace Veterianaria.App.Presentacion.Pages
     public class AdPlanVacunacionModel : PageModel
     {
         //public List <PlanVacunacion> listaAdPlanVacunaciones = new List <PlanVacunacion>();
-        private static IRepositorioPlanVacunacion repoPlanVacuna = new RepositorioPlanVacunacion(new Veterinaria.App.Persistencia.AppContext());
-        public IEnumerable <PlanVacunacion> listaPlanVacuna;
-        public void OnGet()
+        private static IRepositorioPlanVacunacion repoPlanVacunacion = new RepositorioPlanVacunacion(new Veterinaria.App.Persistencia.AppContext());
+        public IEnumerable <PlanVacunacion> listaPlanVacunacion;
+        public string modePage = "adicion";
+        public PlanVacunacion planNow;
+        public void OnGet(int idPlanVacunacion)
         {
-            // this.listaPlanVacuna.Add(
-            //     new PlanVacunacion{
-            //         Nombre = "Plan Nacional", Descripcion = "Plan Nacional contra la Rabia"
-            //     }
-            // );
-            this.listaPlanVacuna = repoPlanVacuna.ObtenerTodoslosPlanVacunacion();
+            if (idPlanVacunacion > 0)
+            {
+                this.modePage = "edicion";
+                this.planNow = repoPlanVacunacion.ObtenerPlanVacunacion(idPlanVacunacion);
+            }else{
+                this.modePage = "adicion";
+            }
+
+            actualizarLista();
+            
         }
         public void OnPostAdd(PlanVacunacion planvacunacion){
-            repoPlanVacuna.AgregarPlanVacunacion(planvacunacion);
-            this.listaPlanVacuna = repoPlanVacuna.ObtenerTodoslosPlanVacunacion();
+            repoPlanVacunacion.AgregarPlanVacunacion(planvacunacion);
+            actualizarLista();
         }
         public void OnPostDel(int idPlanVacunacion){
-            repoPlanVacuna.EliminarPlanVacunacion(idPlanVacunacion);
-            this.listaPlanVacuna = repoPlanVacuna.ObtenerTodoslosPlanVacunacion();
+            repoPlanVacunacion.EliminarPlanVacunacion(idPlanVacunacion);
+            actualizarLista();
         }
         public void OnPostEdit(PlanVacunacion planvacunacion){
-            repoPlanVacuna.EditarPlanVacunacion(planvacunacion);
-            this.listaPlanVacuna = repoPlanVacuna.ObtenerTodoslosPlanVacunacion();
+            repoPlanVacunacion.EditarPlanVacunacion(planvacunacion);
+           actualizarLista();
         }
+
+        public void actualizarLista(){
+            this.listaPlanVacunacion = repoPlanVacunacion.ObtenerTodoslosPlanVacunacion();
+        }    
     }
+    
     
 }

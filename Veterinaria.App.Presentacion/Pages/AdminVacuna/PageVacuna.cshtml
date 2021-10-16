@@ -15,41 +15,82 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-listar-vacuna" class="collapse show" aria-labelledby="headingTwo"
+        <div id="id-collapse-listar-vacuna"class="@(Model.modePage == "adicion" ? "collapse show" : "collapse")" aria-labelledby="headingTwo"
             data-parent="#accordionExample">
             <div class="card-body">
-                
-                    <table class="table table-hover">
-                        <thead>
-                            <tr>
-                                <th scope="col">Id</th>
-                                <th scope="col">NombreVacuna</th>
-                                <th scope="col">FechaVacuna</th>
-                                <th scope="col">Contraindicación</th>
-                                <th scope="col">EnfermedadQueProtege</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <form method="POST">
-                                @foreach (var v in Model.listaVacunas)
-                                {
-                                    <tr>
-                                        <td>@v.Id</td>
-                                        <td>@v.NombreVacuna</td>
-                                        <td>@v.FechaVacuna</td>
-                                        <td>@v.Contraindicaciones</td>
-                                        <td>@v.ProteccionContra</td>
-                                        <td>
-                                                    <button type="submit" class="btn btn-primary bg-success"
-                                                    style="margin-right: 20px">Editar</button>
-                                                    <button type="submit" class="btn btn-primary bg-danger" asp-page-handler="Del"
-                                                    asp-route-idVacuna="@v.Id">Eliminar</button> 
-                                            </td>
-                                    </tr>
-                                }
-                            </form>
-                        </tbody>
-                    </table>
+
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Id</th>
+                            <th scope="col">NombreVacuna</th>
+                            <th scope="col">FechaVacuna</th>
+                            <th scope="col">Contraindicación</th>
+                            <th scope="col">EnfermedadQueProtege</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <form method="POST">
+                            @foreach (var v in Model.listaVacunas)
+                            {
+                                <tr>
+                                    <td>@v.Id</td>
+                                    <td>@v.NombreVacuna</td>
+                                    <td>@v.FechaVacuna</td>
+                                    <td>@v.Contraindicaciones</td>
+                                    <td>@v.ProteccionContra</td>
+                                    <td>
+                                        <div class="container">
+                                            <div class="row" style="width: 230px;">
+                                                <div class="col-sm" style="max-width: fit-content;">
+                                                    <a class="btn btn-primary bg-success" asp-page="/AdminVacuna/PageVacuna"
+                                                    asp-route-idVacuna="@v.Id" style="margin-right: 20px">Editar</a>
+                                                </div>
+                                                <div class="col-sm">
+                                                    <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                    data-target="#exampleModal">
+                                                        Eliminar
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h5 class="modal-title" id="exampleModalLabel">Eliminar
+                                                                        Vacuna
+                                                                    </h5>
+                                                                    <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                        <span aria-hidden="true">&times;</span>
+                                                                    </button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    ¿Deseas eliminar el vacuna?
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Close</button>
+                                                                    <form method="POST">
+                                                                        <button type="submit"
+                                                                        class="btn btn-primary bg-danger"
+                                                                        asp-page-handler="Del"
+                                                                        asp-route-idVacuna="@v.Id">Eliminar</button>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        </form>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -63,10 +104,10 @@
                 </button>
             </h2>
         </div>
-        <div id="id-collapse-admin-vacuna" class="collapse" aria-labelledby="headingOne"
+        <div id="id-collapse-admin-vacuna" class="@(Model.modePage == "edicion" ? "collapse show" : "collapse")" aria-labelledby="headingOne"
             data-parent="#accordionExample">
             <div class="card-body">
-                <form  method="POST">
+                <form method="POST">
                     <div class="form-row">
                         <fieldset disabled>
                             <div class="form-group col-md-6">
@@ -74,13 +115,18 @@
                                 <input type="text" id="disabledTextInput" class="form-control" placeholder="IdVacuna">
                             </div>
                         </fieldset>
+
+                        <input type="text" asp-for="@Model.vacunaNow.Id" type="hidden" class="form-control"
+                            placeholder="IdVacuna">
+
                         <div class="form-group col-md-4">
                             <label for="exampleFormControlSelect1">*Seleccion Nombre de la Vacuna</label>
-                            <select required name="NombreVacuna" asp-items="@Model.Vacunas" class="p-1"></select>
+                            <select required asp-for="@Model.vacunaNow.NombreVacuna" name="NombreVacuna" asp-items="@Model.Vacunas" class="p-1"></select>
                         </div>
                         <div class="form-group col-md-4">
                             <label for="inputDate">Fecha de Vacuna</label>
-                            <input required type="Date" name="FechaVacuna" class="form-control" id="inputDate" placeholder="Fecha Vacuna">
+                            <input required type="Date" asp-for="@Model.vacunaNow.FechaVacuna" name="FechaVacuna" class="form-control" id="inputDate"
+                                placeholder="Fecha Vacuna">
                         </div>
                         <div class="form-group col-md-6">
                             <div class="form-check">
@@ -92,16 +138,65 @@
                                     Enfermedad 1...
                                 </label>
                             </div>
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="@Model.vacunaNow.ProteccionContra"
+                                    type="checkbox" id="id-enfermedad2" name="ProteccionContra">
+                                <label class="form-check-label" for="id-enfermedad2">
+                                    Enfermedad 2...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="@Model.vacunaNow.ProteccionContra"
+                                    type="checkbox" id="gridCid-enfermedad3" name="ProteccionContra">
+                                <label class="form-check-label" for="id-enfermedad3">
+                                    Enfermedad 3...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="@Model.vacunaNow.ProteccionContra"
+                                    type="checkbox" id="id-enfermedad4" name="ProteccionContra">
+                                <label class="form-check-label" for="id-enfermedad4">
+                                    Enfermedad 4...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="@Model.vacunaNow.ProteccionContra"
+                                    type="checkbox" id="id-enfermedad5" name="ProteccionContra">
+                                <label class="form-check-label" for="id-enfermedad5">
+                                    Enfermedad 5...
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" asp-for="@Model.vacunaNow.ProteccionContra"
+                                    type="checkbox" id="id-enfermedad6" name="ProteccionContra">
+                                <label class="form-check-label" for="id-enfermedad6">
+                                    Enfermedad 6...
+                                </label>
+                            </div>
                         </div>
                         <div class="form-group row">
                             <label for="exampleFormControlTextarea1">Contraindicaciones:</label>
-                            <textarea name="Contraindicaciones" class="form-control" id="exampleFormControlTextarea1" rows="5">Escriba las contraindicaciones</textarea>
+                            <textarea asp-for="@Model.vacunaNow.Contraindicaciones" name="Contraindicaciones" class="form-control" id="exampleFormControlTextarea1"
+                                placeholder="Escriba las contraindicaciones" rows="5"></textarea>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-secondary" asp-page-handler="Add">Agregar</button>                   
+                    <div class="container m-4">
+                        <div class="row">
+                            <button class="btn btn-primary mr-2" asp-page-handler="Add">
+                                Agregar
+                            </button>
+
+                            @if (Model.modePage == "edicion")
+                            {
+                                <button type="submit" class="btn btn-primary" style="margin-right: 20px"
+                                asp-page-handler="Edit">
+                                    Editar
+                                </button>
+                            }
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
-
